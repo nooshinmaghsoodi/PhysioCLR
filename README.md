@@ -9,7 +9,7 @@ PhysioCLR integrates domain knowledge of cardiac electrophysiology into contrast
 - Peak-aware reconstruction loss,
 - A hybrid contrastive + reconstruction objective.
 
-The method is implemented as a **plugin (user module)** for the `fairseq-signals` framework and can be used without modifying the original fairseq-signals source code.
+The method is implemented as a **plugin (user module)** for the `fairseq-signals` framework.
 
 ---
 
@@ -28,19 +28,19 @@ Submitted to *IEEE Transactions on Biomedical Engineering (TBME)*.
 
 PhysioCLR/
 ├── physioclr_ext/          # Fairseq-signals user module (models, criterions, tasks)
-│   ├── models/            # wav2vec2_physioCLR
-│   ├── criterions/        # PhysioCLR hybrid loss
-│   ├── modules/           # Decoder
-│   ├── augmentations/     # Heartbeat shuffling
-│   ├── data/              # ECG feature dataset
-│   └── tasks/             # ecg_feature_task
+│   ├── models/            
+│   ├── criterions/        
+│   ├── modules/           
+│   ├── augmentations/     
+│   ├── data/              
+│   └── tasks/             
 │
-├── scripts/               # Feature extraction and inference utilities
-├── configs/               # Hydra YAMLs for pretraining and finetuning
-├── preprocess_ecg.sh      # Feature extraction and dataset preparation
-├── pre-training_ecg.sh    # SSL pretraining launcher
-├── finetuning_ecg.sh      # Downstream finetuning launcher
-├── inference_ecg.sh       # Inference script
+├── scripts/               
+├── configs/               
+├── preprocess_ecg.sh      
+├── pre-training_ecg.sh    
+├── finetuning_ecg.sh      
+├── inference_ecg.sh       
 └── README.md
 
 ````
@@ -84,65 +84,7 @@ This allows fairseq-signals to automatically register:
 
 ---
 
-## Preprocessing (Feature Extraction)
 
-PhysioCLR requires physiological feature vectors and R-peak indices for each ECG segment.
-To generate the required `.npy` files (segment, feature vector, and R-peak locations), run:
-
-```bash
-bash preprocess_ecg.sh
-```
-
-This step prepares the input format expected by the PhysioCLR dataset and task.
-
----
-
-## Pretraining (Self-Supervised)
-
-Edit paths in:
-
-```
-configs/mimic_iv_ecg_physionet_pretrained.yaml
-```
-
-Run:
-
-```bash
-bash pre-training_ecg.sh
-```
-
----
-
-## Finetuning (Arrhythmia Classification)
-
-Edit:
-
-```
-configs/diagnosis.yaml
-```
-
-Set:
-
-```yaml
-model:
-  model_path: /path/to/pretrained_checkpoint.pt
-```
-
-Run:
-
-```bash
-bash finetuning_ecg.sh
-```
-
----
-
-## Inference
-
-```bash
-bash inference_ecg.sh
-```
-
----
 
 ## Citation
 
