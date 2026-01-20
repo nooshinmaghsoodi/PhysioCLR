@@ -105,8 +105,4 @@ This project is released under the **MIT License**.
 
 It is designed as a user-extension for the open-source `fairseq-signals` framework and does not redistribute its source code.
 
-```
-
----
-
 
