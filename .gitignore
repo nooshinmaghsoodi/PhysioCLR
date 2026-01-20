@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / outputs
+*.log
+logs/
+log/
+outputs/
+runs/
+wandb/
+
+# Checkpoints / large artifacts
+*.pt
+*.pth
+*.ckpt
+checkpoints/
+models/
+
+# Data
+data/
+datasets/
+*.npy
+*.npz
+*.csv
+*.parquet
+
+# Hydra
+.multirun/
+hydra_outputs/
+
+# IDE
+.vscode/
+.idea/
