@@ -1,14 +1,4 @@
-Your README is already very good. You only need **three small updates**:
 
-1. Add `preprocess_ecg.sh` to the repository structure
-2. Add a **Preprocessing** section (before Pretraining)
-3. Clarify the plugin path once (common.user_dir example)
-
-Here is the **corrected version** you can copy–paste (I only changed what was necessary):
-
----
-
-```md
 # PhysioCLR: Physiology-Aware Self-Supervised Learning for ECG
 
 This repository provides the official implementation of **PhysioCLR**, a physiology-aware contrastive learning framework for self-supervised representation learning from electrocardiogram (ECG) signals.
